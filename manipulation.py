@@ -1,6 +1,7 @@
 import pandas as pd
 df = pd.read_csv("spotify-2023.csv", encoding='latin-1')
 #1.- check data unique rows, unique series
+
 def cleaning():
     if df.index.is_unique & df.columns.is_unique:
         print("unique rows and columns!")
@@ -11,9 +12,11 @@ def cleaning():
                 print(f"The duplicated series are: {df.loc[index]}")
         df.drop_duplicates(inplace=True)
 
-cleaning()
-
-        
+def main():
+    #elimina registros duplicados
+    df= df.drop_duplicates()
+    
+main()
 
         
     
