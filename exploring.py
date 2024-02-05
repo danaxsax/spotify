@@ -11,8 +11,11 @@ df = pd.read_csv("spotify-2023.csv", encoding='latin1')
 #print(df.head(8))
 #print(f"****************************************************************")
 
-#print(f"columns with null values")
-#print((df.notna().all()))
+print(f"columns with null values")
+
+pd.set_option('display.max_rows', None)   
+pd.set_option('display.max_columns', None)
+print((df.notna().all()))
 #print(f"****************************************************************")
 #print(df["bpm"].max())
 
