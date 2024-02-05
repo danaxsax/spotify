@@ -1,9 +1,10 @@
 import pandas as pd
+import plotly.express as px
+
 #cargar el csv
 df = pd.read_csv("spotify-2023.csv", encoding='latin-1')
 pd.set_option('display.max_rows', None)
 pd.set_option('display.max_columns', None)
-
 NaN_values = df.isna() #True donde hay valores NaN
 any_missing_values = NaN_values.any().any() #verifica si hay NaN en cualquier parte del df
 missing_value_columns = NaN_values.any() #retorna True para columnas con NaN row
@@ -19,6 +20,6 @@ for column, has_missing in missing_value_columns.items():
 print(f"\nRegistros faltantes por columna \n{missing_value_counts}")
 
 #cleaning
-df.dropna(subset=["key"], inplace=True) #eliminas registros con NaN
+df.dropna(inplace=True) #eliminas registros con NaN
 df.info()
 
