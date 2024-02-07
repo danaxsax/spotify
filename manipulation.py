@@ -1,35 +1,9 @@
 import pandas as pd
 import plotly.express as px
+import functions as ft
 pd.options.plotting.backend = "plotly"
 
-def taylors_version(df_cleaned):
-    df_cleaned.head()
-    tays= df_cleaned[df_cleaned["artist(s)_name"]=="Taylor Swift"]
-    print(tays)
-    fig_dates= px.parallel_coordinates(tays, dimensions=["released_year", "released_month", "released_day"],color='in_spotify_charts',  title = "historial de taylor swift's most impresive records released date")
-    fig_dates.show()
-    fig_info = px.parallel_coordinates(tays, dimensions=["danceability_%", "valence_%", "energy_%", "acousticness_%", "instrumentalness_%", "liveness_%","speechiness_%"], title= "caracteristicas de las canciones mas top de tay", color="in_spotify_charts")
-    fig_info.show()
-
-def to_the_hits(df):
-    hit = df["seleccionaste lo que se necesita para ser un hit"]
-    print()
-
-def streams_playlist(df):
-    print()
-
-def top_playlist(df):
-    print()
-def dates (df):
-    print()
-def duos(df):
-    print()
-def top_per_year(df):
-    print()
-
 def cleaning_and_menu():
-    import pandas as pd
-    import plotly.express as px
     pd.options.plotting.backend = "plotly"
     #cargar el csv
     df = pd.read_csv("spotify-2023.csv", encoding='latin-1')
@@ -62,13 +36,13 @@ def cleaning_and_menu():
     selected = int(input("Qué opcion quieres? "))
 
     dictionary = {
-        1: taylors_version,
-        2: to_the_hits,
-        3: streams_playlist,
-        4: top_playlist,
-        5: dates,
-        6: duos,
-        7: top_per_year
+        1: ft.taylors_version,
+        2: ft.to_the_hits,
+        3: ft.streams_playlist,
+        4: ft.top_playlist,
+        5: ft.dates,
+        6: ft.duos,
+        7: ft.top_per_year
     }
     answer = 1
     while answer == 1:
