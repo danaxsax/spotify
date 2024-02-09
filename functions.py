@@ -3,7 +3,6 @@ import plotly.express as px
 pd.options.plotting.backend = "plotly"
 
 def taylors_version(df_cleaned):
-    df_cleaned.head()
     tays= df_cleaned[df_cleaned["artist(s)_name"]=="Taylor Swift"]
     print(tays)
     fig_dates= px.parallel_coordinates(tays, dimensions=["released_year", "released_month", "released_day"],color='in_spotify_charts',  title = "historial de taylor swift's most impresive records released date")
@@ -17,7 +16,9 @@ def to_the_hits(df):
 def streams_playlist(df):
     print()
 
-def top_playlist(df):
+def top_playlist(df_cleaned):
+    playlist = df_cleaned[df_cleaned["in_spotify_playlists"].max()  ]
+    print(playlist)
     print()
 def dates (df):
     print()

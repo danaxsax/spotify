@@ -1,23 +1,17 @@
 import pandas as pd
 
 df = pd.read_csv("spotify-2023.csv", encoding='latin1')
-#print(df.info())
-#print(df.dtypes)
-#print(df['artist(s)_name'].value_counts)
-#print(df.notna().all())
-#print(df[df['in_shazam_charts'].isnull()])
-#print(df["artist(s)_name"]ss)
-#print(f"original dataframe")
-#print(df.head(8))
-#print(f"****************************************************************")
 
-print(f"columns with null values")
-
-pd.set_option('display.max_rows', None)   
+pd.set_option('display.max_rows', None)    
 pd.set_option('display.max_columns', None)
-print((df.notna().all()))
-#print(f"****************************************************************")
-#print(df["bpm"].max())
+print(df.info())
+print(df.dtypes)
+print(df.head())
+df_cleaned = df.dropna()
+order_by_spotify_playlist = df.sort_values(by="in_spotify_playlists", ascending=False).head(5)
+order_by_apple_playlist = df.sort_values(by="in_apple_playlists", ascending=False).head(5)
+tracks_name = ''
+for row in order_by_apple_playlist:
+    tracks_name += order_by_apple_playlist["track_name"]
+print(tracks_name)
 
-#bpm_160 = df[df["bpm"]>160]
-#print (bpm_160)

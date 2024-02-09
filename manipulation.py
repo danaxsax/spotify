@@ -1,5 +1,4 @@
 import pandas as pd
-import plotly.express as px
 import functions as ft
 pd.options.plotting.backend = "plotly"
 
@@ -25,7 +24,7 @@ def cleaning_and_menu():
     df_cleaned = df.dropna() #eliminas registros con NaN
     #df.info()
     
-    print("＊*•̩̩͙✩•̩̩͙*˚*•̩̩͙✩•̩̩͙*˚＊⭒⭒*•̩̩͙✩•̩̩͙*˚⍣˚*•̩̩͙✩•̩̩͙*˚＊⭒Hola•̩̩͙✩•̩̩͙*˚⍣˚*•̩̩͙✩•̩̩͙*˚˚⍣＊⭒˚⍣⭒＊*•̩̩͙✩•̩̩͙*˚⍣˚")
+    print("Hola!")
     print("1. Taylor Swift most succesfull records !")
     print("2. Caracteristicas que debería tener tu record para triunfar")
     print("3. Se relacionan los streams con las veces que se guardó en playlist?")
