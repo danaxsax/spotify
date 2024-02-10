@@ -23,15 +23,18 @@ def cleaning_and_menu():
     #cleaning
     df_cleaned = df.dropna() #eliminas registros con NaN
     #df.info()
-    
-    print("Hola!")
-    print("1. Taylor Swift most succesfull records !")
-    print("2. Caracteristicas que debería tener tu record para triunfar")
-    print("3. Se relacionan los streams con las veces que se guardó en playlist?")
-    print("4. Top songs basada en las veces que se guardó en playlist")
-    print("5. Fechas en que más se saca musica")
-    print("6. Los duos más chambeadores (artistas que colaboraron más)")
-    print("7. La canción top por año")
+    menu = ["Hola!",
+    "1. Taylor Swift most succesfull records !",
+    "2. Caracteristicas que debería tener tu record para triunfar",
+    "3. Se relacionan los streams con las veces que se guardó en playlist?",
+    "4. Top 15 basado en las veces que se guardó en playlist",
+    "5. Fechas en que más se saca musica",
+    "6. Los duos más chambeadores (artistas que colaboraron más)",
+    "7. La canción top por año"
+    ]
+
+    for opcion in menu:
+        print (opcion)
     selected = int(input("Qué opcion quieres? "))
 
     dictionary = {
@@ -43,10 +46,11 @@ def cleaning_and_menu():
         6: ft.duos,
         7: ft.top_per_year
     }
-    answer = 1
-    while answer == 1:
+    while True:
         if selected in dictionary:
-            return dictionary[selected](df_cleaned)
-        answer = input("1. Ver menu otra vez \n2. End")
+            dictionary[selected](df_cleaned)
+            second_select = int(input("Quieres seleccionar otra vez? ")).lower()
+            if second_select != "si":
+                break
         
 cleaning_and_menu()

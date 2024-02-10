@@ -17,9 +17,16 @@ def streams_playlist(df):
     print()
 
 def top_playlist(df_cleaned):
-    playlist = df_cleaned[df_cleaned["in_spotify_playlists"]].max()
-    print(playlist)
-    print()
+    top = df_cleaned
+    top.rename(columns={"in_apple_playlists" : 'veces en playlist de apple', "track_name" : "cancion"}, inplace=True)
+    top.rename(columns={"in_spotify_playlists" : 'veces en playlist de spotify', "track_name" : "cancion"}, inplace=True)
+    print(top.head())
+    order_by_spotify_playlist = top.sort_values(by="veces en playlist de spotify", ascending=False).head(15)
+    order_by_apple_playlist = top.sort_values(by="veces en playlist de apple", ascending=False).head(15)
+    apple = px.bar(order_by_apple_playlist, x='cancion', y = 'veces en playlist de apple', title='Top 15 canciones en playlist - ', color='artist(s)_name')
+    spotify = px.bar(order_by_spotify_playlist, x='cancion', y='veces en playlist de spotify', title='Top 15 canciones en playlist - Spotify', color='cancion')
+    apple.show()
+    spotify.show()
 def dates (df):
     print()
 def duos(df):
