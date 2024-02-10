@@ -17,7 +17,7 @@ def streams_playlist(df):
     print()
 
 def top_playlist(df_cleaned):
-    playlist = df_cleaned[df_cleaned["in_spotify_playlists"].max()  ]
+    playlist = df_cleaned[df_cleaned["in_spotify_playlists"]].max()
     print(playlist)
     print()
 def dates (df):
