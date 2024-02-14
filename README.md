@@ -1,4 +1,4 @@
-# Analista de datos
+# Analista de datos 🤓
 
 La vida cambia, muy rapido. La gente come, cena, corre, llora y asi, lo cual solo genera informacion. Diario se registrar millones de datos, como cuando trackeas los km que corriste, la foto de un perrito lindo en la calle, la musica que escuchas en Spotify. Todos estos datos son recopilados, almacenados y muchas veces quedan ahi.
 
