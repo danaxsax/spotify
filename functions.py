@@ -38,8 +38,20 @@ def top_playlist(df_cleaned):
                      color_continuous_scale='Temps') 
     apple.show()
     spotify.show()
-def dates (df):
-    print()
+
+def dates (df_cleaned):
+    df_cleaned['release_date'] = df_cleaned['released_year'].astype(str) + '-' + df_cleaned['released_month'].astype(str) + '-' + df_cleaned['released_day'].astype(str)
+    print(df_cleaned.head())
+    counting = (df_cleaned['release_date'].value_counts()).head(10)
+    df_register = pd.DataFrame({"release_date" : counting.index, "frecuency" : counting.values})
+    a = df_register.sort_values(by="frecuency",ascending=False)
+    fig = px.bar(a,
+            x = 'release_date',
+            y = 'frecuency',
+            title= 'Fechas con mas canciones sacadas',
+            color = 'release_date',
+            color_continuous_scale='Picnic' )
+    fig.show()
 def duos(df):
     print()
 def top_per_year(df):
