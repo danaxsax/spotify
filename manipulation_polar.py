@@ -1,2 +1,3 @@
 import polars as pl
-pl.read_csv(source="spotify-2023.csv" , separator="|")
+a = pl.read_csv("spotify-2023.csv")
+print(a)
