@@ -55,8 +55,7 @@ def dates (df_cleaned):
     fig.show()
 
 def duos(df_cleaned):
-    
-    print()
+    print
 
 def top_per_year(df):
     print()
