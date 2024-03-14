@@ -5,7 +5,7 @@ pd.options.plotting.backend = "plotly"
 def cleaning_and_menu():
     pd.options.plotting.backend = "plotly"
     #cargar el csv
-    df = pd.read_csv("spotify-2023.csv", encoding='latin-1')
+    df = pd.read_csv("database/spotify-2023.csv", encoding='latin1')
     pd.set_option('display.max_rows', None)
     pd.set_option('display.max_columns', None)
     NaN_values = df.isna() #True donde hay valores NaN
