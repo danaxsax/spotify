@@ -14,4 +14,7 @@ df.dropna()
 a = df.sort_values(by = "artist_count", ascending=False).head(10)
 print(a["artist_count"])
 
+a[['artist_1', 'artist_2', 'artist_3', 'artist_4', 'artist_5', 'artist_6', 'artist_7', 'artist_8']] = a['artist(s)_name'].str.split(', ', expand=True)
+print(a.head(5))
+
 
